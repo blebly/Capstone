@@ -1,0 +1,773 @@
+WindowManager:
+	StartScreen:
+	IslandScreen:
+	SurveyScreen:
+	Island3Screen:
+	F4Screen:
+	F5Screen:
+	StudyorProblemScreen:
+	StudyScreen:
+	ProblemWindow:
+	MultipleChoiceWindow:
+	ShortAnswerWindow:
+	ResultAgainWindow:
+
+
+
+<StartScreen>:
+	name: "start"
+
+	canvas:
+		Color:
+			rgb:(1,1,1,1)
+		Rectangle:
+			size: self.size
+			pos: self.pos
+
+	FloatLayout:
+		Button:
+			background_normal: "image/start.png"
+			size_hint: 0.3, 0.3
+			pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+			on_release: 
+				app.root.current = "island"
+
+
+<IslandScreen>:
+	name: "island"
+
+	canvas:
+		Color:
+			rgb:(1,1,1,1)
+		Rectangle:
+			size: self.size
+			pos: self.pos
+
+	FloatLayout:
+		Button: 
+			background_normal: "image/island1.png" 
+			size_hint: 0.2, 0.2
+			pos_hint: {'center_x': 0.65, 'center_y': 0.65}
+
+		Button: 
+			background_normal: "image/island2.png"
+			size_hint: 0.2, 0.2
+			pos_hint: {'center_x': 0.35, 'center_y': 0.65}
+
+		Button: 
+			background_normal: "image/island3.png"
+			size_hint: 0.2, 0.2
+			pos_hint: {'center_x': 0.2, 'center_y': 0.35}
+			on_release: 
+				app.root.transition.direction = 'left'
+				app.root.current = "island3"
+
+		Button: 
+			background_normal: "image/island4.png"
+			size_hint: 0.2, 0.2
+			pos_hint: {'center_x': 0.5, 'center_y': 0.35}
+
+		Button: 
+			background_normal: "image/island5.png"
+			size_hint: 0.2, 0.2
+			pos_hint: {'center_x': 0.8, 'center_y': 0.35}
+
+
+
+<Island3Screen>:
+	name: "island3"
+
+	canvas:
+		Color:
+			rgb:(1,1,1,1)
+		Rectangle:
+			size: self.size
+			pos: self.pos
+
+	FloatLayout:
+		Button: 
+			background_normal: "image/F1.png"
+			size_hint: 0.18, 0.15
+			pos_hint: {'center_x': 0.1, 'center_y': 0.5}
+			on_release: 
+				app.root.transition.direction = 'left'
+				app.root.current = "survey"
+
+		Button: 
+			background_normal: "image/F2.png"
+			size_hint: 0.18, 0.15
+			pos_hint: {'center_x': 0.3, 'center_y': 0.5}
+			on_release: 
+				app.root.transition.direction = 'left'
+				app.root.current = "survey"
+
+		Button: 
+			background_normal: "image/F3.png"
+			size_hint: 0.18, 0.15
+			pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+			on_release: 
+				app.root.transition.direction = 'left'
+				app.root.current = "survey"
+
+		Button: 
+			background_normal: "image/F4.png"
+			size_hint: 0.18, 0.15
+			pos_hint: {'center_x': 0.7, 'center_y': 0.5}
+			on_release: 
+				app.root.transition.direction = 'left'
+				app.root.current = "survey"
+
+		Button: 
+			background_normal: "image/F5.png"
+			size_hint: 0.18, 0.15
+			pos_hint: {'center_x': 0.9, 'center_y': 0.5}
+			on_release: 
+				app.root.transition.direction = 'left'
+				app.root.current = "survey"
+
+		Button: 
+			background_normal: "image/return.png"
+			size_hint: 0.08, 0.1
+			pos_hint: {'center_x': 0.05, 'center_y': 0.05}
+			on_release: 
+				app.root.transition.direction = 'right'
+				app.root.current = "island"
+
+
+<SurveyScreen>:
+	name: "survey"
+	checkbox1: checkbox1
+	checkbox2: checkbox2
+	checkbox3: checkbox3
+	checkbox4: checkbox4
+	checkbox5: checkbox5
+	contentTitle: contentTitle
+	contentImage: contentImage
+	surveyNext: surveyNext
+	surveyBefore: surveyBefore
+
+
+	canvas:
+		Color:
+			rgb:(1,1,1,1)
+		Rectangle:
+			size: self.size
+			pos: self.pos
+
+	FloatLayout:
+		Image:
+			id: contentTitle
+			source: "image/titleF4_1black.png"
+			size_hint: 0.3, 0.3
+			pos_hint: {"center_x": 0.5, "center_y": 0.8}
+
+
+		Image:
+			id: contentImage
+			source: "image/F4_1_study.png"
+			size_hint: 0.8, 0.8
+			pos_hint: {"center_x": 0.5, "center_y": 0.55}
+
+		Button:
+			id: surveyNext
+			background_normal: "image/surveyNext.png"
+			size_hint: 0.08, 0.1
+			pos_hint: {"center_x": 0.95, "center_y": 0.55}
+			on_release: root.next()
+
+		Button:
+			id: surveyBefore
+			background_normal: "image/hide.png"
+			size_hint: 0.08, 0.1
+			pos_hint: {"center_x": 0.05, "center_y": 0.55}
+			on_release: root.back()
+
+
+		Image:
+			source: "image/answer1.png"
+			size_hint: 0.3, 0.2
+			pos_hint: {'center_x': 0.1, 'center_y': 0.3}
+
+		Image:
+			source: "image/answer2.png"
+			size_hint: 0.3, 0.2
+			pos_hint: {'center_x': 0.3, 'center_y': 0.3}
+
+		Image:
+			source: "image/answer3.png"
+			size_hint: 0.3, 0.2
+			pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+
+		Image:
+			source: "image/answer4.png"
+			size_hint: 0.3, 0.2
+			pos_hint: {'center_x': 0.7, 'center_y': 0.3}
+
+		Image:
+			source: "image/answer5.png"
+			size_hint: 0.3, 0.2
+			pos_hint: {'center_x': 0.9, 'center_y': 0.3}
+
+
+
+		CheckBox:
+			id: checkbox1
+			group: "1"
+			size_hint: 0.2, 0.2
+			pos_hint: {'center_x': 0.1, 'center_y': 0.25}
+			on_press: root.check()
+
+		CheckBox:
+			id: checkbox2
+			group: "1"
+			size_hint: 0.2, 0.2
+			pos_hint: {'center_x': 0.3, 'center_y': 0.25}
+			on_press: root.check()
+
+		CheckBox:
+			id: checkbox3
+			group: "1"
+			size_hint: 0.2, 0.2
+			pos_hint: {'center_x': 0.5, 'center_y': 0.25}
+			on_press: root.check()
+
+		CheckBox:
+			id: checkbox4
+			group: "1"
+			size_hint: 0.2, 0.2
+			pos_hint: {'center_x': 0.7, 'center_y': 0.25}
+			on_press: root.check()
+
+		CheckBox:
+			id: checkbox5
+			group: "1"
+			size_hint: 0.2, 0.2
+			pos_hint: {'center_x': 0.9, 'center_y': 0.25}
+			on_press: root.check()
+
+
+		Button: 
+			background_normal: "image/next.png"
+			size_hint: 0.09, 0.13
+			pos_hint: {'center_x': 0.95, 'center_y': 0.05}
+			on_release: 
+				app.root.transition.direction = 'left'
+				app.root.current = "F4"
+
+
+		Button: 
+			background_normal: "image/return.png"
+			size_hint: 0.08, 0.1
+			pos_hint: {'center_x': 0.05, 'center_y': 0.05}
+			on_release: 
+				app.root.transition.direction = 'right'
+				app.root.current = "island3"
+
+
+
+<F4Screen>:
+	name: "F4"
+
+	canvas:
+		Color:
+			rgb:(1,1,1,1)
+		Rectangle:
+			size: self.size
+			pos: self.pos
+
+
+	FloatLayout:
+		Button:  
+			background_normal: "image/F4_1.png"
+			size_hint: 0.2, 0.18
+			pos_hint: {'center_x': 0.3, 'center_y': 0.5}
+			on_release: 
+				app.root.transition.direction = 'left'
+				app.root.current = "studyorproblem"
+
+		Button: 
+			background_normal: "image/F4_2.png"
+			size_hint: 0.2, 0.18
+			pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+			on_release: 
+				app.root.transition.direction = 'left'
+				app.root.current = "studyorproblem"
+
+		Button: 
+			background_normal: "image/F4_3.png"
+			size_hint: 0.2, 0.18
+			pos_hint: {'center_x': 0.7, 'center_y': 0.5}
+			on_release: 
+				app.root.transition.direction = 'left'
+				app.root.current = "studyorproblem"
+
+		Button: 
+			background_normal: "image/return.png"
+			size_hint: 0.08, 0.1
+			pos_hint: {'center_x': 0.05, 'center_y': 0.05}
+			on_release: 
+				app.root.transition.direction = 'right'
+				app.root.current = "island3"
+
+
+
+
+<F5Screen>:
+	name: "F5"
+
+	canvas:
+		Color:
+			rgb:(1,1,1,1)
+		Rectangle:
+			size: self.size
+			pos: self.pos
+
+	FloatLayout:
+		Button:
+			background_normal: "image/F5_1.png"
+			size_hint: 0.18, 0.15
+			pos_hint: {'center_x': 0.4, 'center_y': 0.5}
+			on_release: 
+				app.root.transition.direction = 'left'
+				app.root.current = "studyorproblem"
+
+		Button:
+			background_normal: "image/F5_2.png"
+			size_hint: 0.18, 0.15
+			pos_hint: {'center_x': 0.6, 'center_y': 0.5}
+			on_release: 
+				app.root.transition.direction = 'left'
+				app.root.current = "studyorproblem"
+
+		Button:
+			background_normal: "image/return.png"
+			size_hint: 0.08, 0.1
+			pos_hint: {'center_x': 0.05, 'center_y': 0.05}
+			on_release: 
+				app.root.transition.direction = 'right'
+				app.root.current = "island"
+
+
+
+<StudyorProblemScreen>:
+	name: "studyorproblem"
+
+	canvas:
+		Color:
+			rgb:(1,1,1,1)
+		Rectangle:
+			size: self.size
+			pos: self.pos
+
+	FloatLayout:
+		Button:
+			background_normal: "image/study.png"
+			size_hint: 0.3, 0.15
+			pos_hint: {'center_x': 0.5, 'center_y': 0.58}
+			on_release: 
+				app.root.transition.direction = 'left'
+				app.root.current = "study"
+
+		Button:
+			background_normal: "image/problem.png"
+			size_hint: 0.3, 0.15
+			pos_hint: {'center_x': 0.5, 'center_y': 0.42}
+			on_release: 
+				app.root.transition.direction = 'left'
+				app.root.current = "multiplechoice"
+
+		Button:
+			background_normal: "image/return.png"
+			size_hint: 0.08, 0.1
+			pos_hint: {'center_x': 0.05, 'center_y': 0.05}
+			on_release:
+				screenmanger.transition.direction = 'right' 
+				app.root.current = "F4"
+
+
+<StudyScreen>:
+	name: "study"
+
+	canvas:
+		Color:
+			rgb:(1,1,1,1)
+		Rectangle:
+			size: self.size
+			pos: self.pos
+
+	FloatLayout:
+		Image:
+			source: "image/F4_1_studytitle.png"
+			size_hint: 0.2, 0.2
+			pos_hint: {'center_x': 0.5, 'center_y': 0.9}
+
+		Image:
+			source: "image/F4_1_study.png"
+			size_hint: 0.9, 0.9
+			pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+
+
+		Button: 
+			background_normal: "image/gotoprob.png"
+			size_hint: 0.1, 0.14
+			pos_hint: {'center_x': 0.93, 'center_y': 0.05}
+			on_release: 
+				app.root.transition.direction = 'left'
+				app.root.current = "multiplechoice"
+
+		Button:
+			background_normal: "image/return.png"
+			size_hint: 0.08, 0.1
+			pos_hint: {'center_x': 0.05, 'center_y': 0.05}
+			on_release:
+				screenmanger.transition.direction = 'right' 
+				app.root.current = "studyorproblem" 
+
+
+
+<MultipleChoiceWindow>:
+	name: "multiplechoice"
+
+	click1: click1
+	click2: click2
+	click3: click3
+	click4: click4
+	click5: click5
+	tagLabel: tagLabel
+
+	BoxLayout:
+	    canvas:
+            Color:
+                rgb:(1,1,1,1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+	    orientation: "vertical"
+	    BoxLayout:
+	        Image:
+	    		id: problem
+                source: './db/406.jpg'
+                size: root.width, root.height/2
+                pos: 0, root.height/2
+                allow_stretch: True
+
+		FloatLayout:
+		    #multiple choice - tag label
+			Label:
+				id: tagLabel
+				text: "#Function and graphs"
+				pos_hint: {"x":0.8, "top":1}
+				size_hint: 0.05, 0.15
+				color: 0,0,0,1
+				font_size: (root.width**2 + root.height**2) / 15**4
+			ToggleButton:
+			    id: click1
+				text: "1"
+				pos_hint: {"x":0, "top":1} 
+				size_hint: 0.1, 0.2
+				on_state:
+				    self.background_color = (0.9, 0.0, 0.0, 0.0, 1.0)
+                    if self.state == "down": \
+                    self.background_color = (1.0, 0.0, 0.0, 1.0); \
+                on_press:
+                    click2.state = "normal"
+                    click3.state = "normal"
+                    click4.state = "normal"
+                    click5.state = "normal"
+                    root.clicked(1)
+
+			ToggleButton:
+			    id: click2
+				text: "2"
+				pos_hint: {"x":0, "top":0.8} 
+				size_hint: 0.1, 0.2
+				on_state:
+				    self.background_color = (0.9,0.0, 0.0, 0.0, 1.0)
+                    if self.state == "down": \
+                    self.background_color = (1.0, 0.0, 0.0, 1.0); \
+                on_press:
+                    click1.state = "normal"
+                    click3.state = "normal"
+                    click4.state = "normal"
+                    click5.state = "normal"
+                    root.clicked(2)
+
+			ToggleButton:
+			    id: click3
+				text: "3"
+				pos_hint: {"x":0, "top":0.6} 
+				size_hint: 0.1, 0.2
+				on_state:
+				    self.background_color = (0.9,0.0, 0.0, 0.0, 1.0)
+                    if self.state == "down": \
+                    self.background_color = (1.0, 0.0, 0.0, 1.0); \
+                    self.status = True
+                on_press:
+                    root.clicked(3)
+                    click2.state = "normal"
+                    click1.state = "normal"
+                    click4.state = "normal"
+                    click5.state = "normal"
+
+			ToggleButton:
+			    id: click4
+				text: "4"
+				pos_hint: {"x":0, "top":0.4} 
+				size_hint: 0.1, 0.2
+				on_state:
+				    self.background_color = (0.9,0.0, 0.0, 0.0, 1.0)
+                    if self.state == "down": \
+                    self.background_color = (1.0, 0.0, 0.0, 1.0); \
+                on_press:
+                    root.clicked(4)
+                    click2.state = "normal"
+                    click3.state = "normal"
+                    click1.state = "normal"
+                    click5.state = "normal"
+
+			ToggleButton:
+			    id: click5
+				text: "5" 
+				pos_hint: {"x":0, "top":0.2} 
+				size_hint: 0.1, 0.2
+				on_state:
+				    self.background_color = (0.9,0.0, 0.0, 0.0, 1.0)
+                    if self.state == "down": \
+                    self.background_color = (1.0, 0.0, 0.0, 1.0); \
+                on_press:
+                    root.clicked(5)
+                    click2.state = "normal"
+                    click3.state = "normal"
+                    click4.state = "normal"
+                    click1.state = "normal"
+
+		FloatLayout:
+			pos_hint: {"x":0, "top":0.2}
+			size_hint: 1, 0.2
+
+			Button:
+				text: "hint"
+				font_size: (root.width**2 + root.height**2) / 14**4
+				size_hint: 0.15, 0.5
+				pos_hint: {"x": 0, "top":0.5}
+				on_press: root.showhint()
+
+			Button:
+				text: "next"
+				font_size: (root.width**2 + root.height**2) / 14**4
+				size_hint: 0.15, 0.5
+				pos_hint: {"x":0.85, "top":0.5}
+				on_release:
+				    root.manager.transition.direction = "left"
+				    root.nextBtn()
+				    click1.state = "normal"
+				    click2.state = "normal"
+                    click3.state = "normal"
+                    click4.state = "normal"
+                    click5.state = "normal"
+
+<ShortAnswerWindow>:
+	name: "shortanswer"
+	answer: answer
+
+	BoxLayout:
+	    orientation: "vertical"
+	    canvas:
+            Color:
+                rgb:(1,1,1,1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        BoxLayout:
+	        Label:
+	            canvas.before:
+                    Rectangle:
+                        size: root.width, root.height/2
+                        source: './db/406.jpg'
+                        pos: 0, root.height/2
+
+		FloatLayout:
+			pos_hint: {"x":0, "top":0.8}
+			size_hint: 1, 0.6
+
+			Label: 
+				size_hint: 0.3, 0.2
+				pos_hint: {"x": 0.45, "top":0.43}
+				font_size: (root.width**2 + root.height**2) / 14**4
+				color: 0,0,0,1
+				text: "Answer: "
+
+			TextInput:
+				id: answer
+				multiline: False
+				size_hint: 0.3, 0.2
+				pos_hint: {"x": 0.69, "top":0.43}
+
+		FloatLayout:
+			pos_hint: {"x":0, "top":0.2}
+			size_hint: 1, 0.2
+
+			Button:
+				text: "hint"
+				font_size: (root.width**2 + root.height**2) / 14**4
+				size_hint: 0.15, 0.5
+				pos_hint: {"x": 0, "top":0.5}
+
+			Button:
+				text: "next"
+				font_size: (root.width**2 + root.height**2) / 14**4
+				size_hint: 0.15, 0.5
+				pos_hint: {"x":0.85, "top":0.5}
+				on_release:
+				    root.nextBtn()
+
+<HintPopup>:
+    name:'hint'
+    size_hint: None, None
+    size: 400, 400
+    BoxLayout:
+	    canvas:
+            Color:
+                rgb:(1,1,1,1)
+            Rectangle:
+                size: self.size
+                pos: self.pos
+	    orientation: "vertical"
+	    BoxLayout:
+	    	Image:
+	    		id: problem
+                source: './db/hint1.png'
+                size: 400, 200
+                pos: 0, 200
+                allow_stretch: True
+
+<ResultPassWindow>:
+	name: "rpass"
+
+	canvas:
+		Color:
+			rgb:(1,1,1,1)
+		Rectangle:
+			size: self.size
+			pos: self.pos
+
+	FloatLayout:
+		pos_hint: {"x":0, "top":0.8}
+		size_hint: 1, 0.6
+
+		Image:
+			size_hint: 0.5, 0.5
+			pos_hint: {"x": 0.56, "top":1.13}
+			source: "./db/round.png"
+			allow_stretch: True
+			keep_ratio: True
+
+		Label:
+		    id: Total
+			size_hint: 0.3, 0.2
+			pos_hint: {"x": 0.66, "top":0.99}
+			font_size: (root.width**2 + root.height**2) / 12**4
+			color: 0,0,0,1
+			text: "0.8"
+
+		Label:
+			size_hint: 0.3, 0.2
+			pos_hint: {"x": 0.25, "top":1}
+			font_size: (root.width**2 + root.height**2) / 12**4
+			color: 0,0,0,1
+			text: "Your Result"
+
+	BoxLayout:
+	    Label:
+	        canvas.before:
+	            Rectangle:
+	                id: p1
+                    size: root.width/10, root.height/10
+                    source: './img/O.png'
+                    pos: root.width/7, root.height/3
+                Rectangle:
+                    id: p2
+                    size: root.width/10, root.height/10
+                    source: './img/X.png'
+                    pos: root.width*2/7, root.height/3
+                Rectangle:
+                    id: p3
+                    size: root.width/10, root.height/10
+                    source: './img/O.png'
+                    pos: root.width*3/7, root.height/3
+                Rectangle:
+                    id: p4
+                    size: root.width/10, root.height/10
+                    source: './img/O.png'
+                    pos: root.width*4/7, root.height/3
+                Rectangle:
+                    id: p5
+                    size: root.width/10, root.height/10
+                    source: './img/O.png'
+                    pos: root.width*5/7, root.height/3
+
+<ResultAgainWindow>:
+	name: "ragain"
+
+	canvas:
+		Color:
+			rgb:(1,1,1,1)
+		Rectangle:
+			size: self.size
+			pos: self.pos
+
+	FloatLayout:
+		pos_hint: {"x":0, "top":0.8}
+		size_hint: 1, 0.6
+
+		Image:
+			size_hint: 0.5, 0.5
+			pos_hint: {"x": 0.56, "top":1.13}
+			source: "./db/round.png"
+			allow_stretch: True
+			keep_ratio: True
+
+		Label:
+		    id: Total
+			size_hint: 0.3, 0.2
+			pos_hint: {"x": 0.66, "top":0.99}
+			font_size: (root.width**2 + root.height**2) / 12**4
+			color: 0,0,0,1
+			text: "0.4"
+
+		Label:
+			size_hint: 0.3, 0.2
+			pos_hint: {"x": 0.25, "top":1}
+			font_size: (root.width**2 + root.height**2) / 12**4
+			color: 0,0,0,1
+			text: "Your Result"
+
+	BoxLayout:
+	    Label:
+	        canvas.before:
+	            Rectangle:
+	                id: p1
+                    size: root.width/10, root.height/10
+                    source: './img/O.png'
+                    pos: root.width/7, root.height/3
+                Rectangle:
+                    id: p2
+                    size: root.width/10, root.height/10
+                    source: './img/X.png'
+                    pos: root.width*2/7, root.height/3
+                Rectangle:
+                    id: p3
+                    size: root.width/10, root.height/10
+                    source: './img/O.png'
+                    pos: root.width*3/7, root.height/3
+                Rectangle:
+                    id: p4
+                    size: root.width/10, root.height/10
+                    source: './img/X.png'
+                    pos: root.width*4/7, root.height/3
+                Rectangle:
+                    id: p5
+                    size: root.width/10, root.height/10
+                    source: './img/X.png'
+                    pos: root.width*5/7, root.height/3
